@@ -9,7 +9,7 @@
 # Journal of Hydrology, 607(July 2021), 127498. https://doi.org/10.1016/j.jhydrol.2022.127498
 
 # 3. Script:
-# Notes: Conduit.csv is the conduit file of your SWMM 5 model. It is created by converting Conduit.shp file to *.shp file.
+# Notes: Conduit.csv is the conduit file of your SWMM 5 model. It is created by converting Conduit.shp file to *.csv file.
 # Example below is for ROUGHNESS, this can be repeated for any attributes.
 
 conduit_file = read.csv("Conduit.csv", header=TRUE)
@@ -119,9 +119,9 @@ swmm_files <- run_swmm(
   out = tmp_out_file
 )
 
-mat_out_fld = as.data.frame(matrix(0 ,nrow = 194, ncol = 1)) #creating matrix for sampled value
-mat_rpt1 = as.data.frame(matrix(0 ,nrow = 850, ncol = 1)) #creating matrix for sampled value
-mat_rpt2 = as.data.frame(matrix(0 ,nrow = 6, ncol = 1)) #creating matrix for sampled value
+mat_out_fld = as.data.frame(matrix(0 ,nrow = 194, ncol = 1)) #creating matrix for sampled value #matrix length varies as per data
+mat_rpt1 = as.data.frame(matrix(0 ,nrow = 850, ncol = 1)) #creating matrix for sampled value #matrix length varies as per data
+mat_rpt2 = as.data.frame(matrix(0 ,nrow = 6, ncol = 1)) #creating matrix for sampled value #matrix length varies as per data
 for (i in 1:100){ # main loop for sampling
   rand1 = 55  #Total = 1091, 5%=55, 25%=272, 50%=545, 75%=818
   input1 = read_inp(inp_file) # reading input file
